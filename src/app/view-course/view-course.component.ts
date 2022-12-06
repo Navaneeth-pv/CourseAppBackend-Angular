@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-view-course',
@@ -7,9 +8,18 @@ import { Component } from '@angular/core';
 })
 export class ViewCourseComponent {
 
-  data:any=[
-    {"id":1,"courseTitle":"Java","description":"Instructor: Sarang","venue":"Ernakulam","duration":"3 month","date":"22/05/2022"},{"id":2,"courseTitle":"Java","description":"Instructor: Sarang","venue":"Ernakulam","duration":"3 month","date":"22/05/2022"},{"id":3,"courseTitle":"Java","description":"Instructor: Sarang","venue":"Ernakulam","duration":"3 month","date":"22/05/2022"},{"id":52,"courseTitle":"python","description":"Instructor:Arun","venue":"kannur","duration":"1 month","date":"22//2022"}
+  constructor(private api:ApiService){
+    api.fetchCourses().subscribe(
 
-  ]
+      (response)=>{
+        this.data=response;
+      }
+
+    )
+
+  }
+
+
+  data:any=[]
 
 }
