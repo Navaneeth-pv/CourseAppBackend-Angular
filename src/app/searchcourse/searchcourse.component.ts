@@ -9,6 +9,7 @@ import { ApiService } from '../api.service';
 export class SearchcourseComponent {
   courseTitle=""
   searchCourse: any;
+  data1: any;
 
   constructor(private api:ApiService){}
   readValues=()=>{
@@ -27,5 +28,20 @@ export class SearchcourseComponent {
     )
 
   }
+
+  deleteBtnClick=(id:any)=>{
+    let data:any={"id":id}
+    this.api.deleteCourse(data).subscribe(
+      (genarate:any)=>{
+        console.log(genarate)
+        if (genarate.status=="success") {
+          alert("deleted successfully")
+          this.data1=[]
+          
+        }
+      }
+    )
+  }
+
 
 }
