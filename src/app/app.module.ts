@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ViewCourseComponent } from './view-course/view-course.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { SearchcourseComponent } from './searchcourse/searchcourse.component';
 
 const myRoute : Routes=[
   {
@@ -18,6 +19,10 @@ const myRoute : Routes=[
   {
     path:"view",
     component:ViewCourseComponent
+  },
+  {
+    path:"search",
+    component:SearchcourseComponent
   }
 ]
 
@@ -26,7 +31,8 @@ const myRoute : Routes=[
     AppComponent,
     AddCourseComponent,
     NavbarComponent,
-    ViewCourseComponent
+    ViewCourseComponent,
+    SearchcourseComponent
   ],
   imports: [
     BrowserModule,
